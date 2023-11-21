@@ -1,0 +1,16 @@
+{
+  "name": "resume_challenge_frontend",
+  "version": "1.0.0",
+  "description": "This repository is a part of the [AWS-Cloud-Resume-Challenge](https://github.com/keffren/aws_cloud_resume_challenge), and its objective is to serve as the CI/CD for the project front-end. It contains the web static files such as HTML, CSS and JS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "puppeteer": "^21.5.2"
+  }
+}
