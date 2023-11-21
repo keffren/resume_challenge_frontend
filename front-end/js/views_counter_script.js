@@ -50,9 +50,10 @@ async function updateVisitorsCount(){
 //await must exist within an async function!!!!
 ;(async () => {
     let count = await getVisitorsCount();
+
     //Load the count into HTML
     myDisplayer(count);
-})();
 
-//Update the counter
-updateVisitorsCount();
+    //Update the counter
+    updateVisitorsCount();
+})();
