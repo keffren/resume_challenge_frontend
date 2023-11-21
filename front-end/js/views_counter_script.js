@@ -8,16 +8,16 @@ function myDisplayer(visitor_count) {
 };
 
 async function getVisitorsCount(){
-    let request = await fetch(
+    const request = await fetch(
         "https://5xikcm1l6i.execute-api.eu-west-1.amazonaws.com/dev/visitor-counter"
     );
     
-    promise = await request.json();
+    const promise = await request.json();
     //console.log(promise);
 
     if(promise["statusCode"] === 200){
-        data_promise = JSON.parse(promise["body"]);
-        count = data_promise["message"];
+        const data_promise = JSON.parse(promise["body"]);
+        const count = data_promise["message"];
         //console.log(count);
         //console.log(typeof(count));
         return count;
@@ -39,9 +39,9 @@ async function updateVisitorsCount(){
     )
 
     //Notify the result of update operation
-    promise = await request.json();
-    data_promise = JSON.parse(promise["body"]);
-    message = data_promise["message"];
+    const promise = await request.json();
+    const data_promise = JSON.parse(promise["body"]);
+    const message = data_promise["message"];
     console.log(message)
 }
 
@@ -49,7 +49,7 @@ async function updateVisitorsCount(){
 //Call getVisitorsCount function and handle its returned Promise object
 //await must exist within an async function!!!!
 ;(async () => {
-    let count = await getVisitorsCount();
+    const count = await getVisitorsCount();
 
     //Load the count into HTML
     myDisplayer(count);
