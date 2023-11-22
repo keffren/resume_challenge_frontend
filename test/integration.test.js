@@ -14,7 +14,7 @@ async function getViews() {
     const page = await browser.newPage();
 
     //Navigate to the web
-    await page.goto(URL, { waitUntil: 'networkidle2' });
+    await page.goto(URL, { waitUntil: 'networkidle0' });
   
     // Wait for the element with the specific selector to appear in the DOM
     await page.waitForSelector('#views-counter');
