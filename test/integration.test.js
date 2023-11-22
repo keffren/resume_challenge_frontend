@@ -6,9 +6,7 @@ const URL = 'https://mateodev.cloud';
 //asynchronous IIFE (Inmediately Invoked Function Expression)
 async function getViews() {
 
-    const browser = await puppeteer.launch({
-        headless: false    //Disable see the browser operating
-    });
+    const browser = await puppeteer.launch();
 
     const page = await browser.newPage();
   
