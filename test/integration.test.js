@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-const TIME_OUT = 7000;
+const TIME_OUT = 10000;
 const URL = 'https://mateodev.cloud';
 
 //asynchronous IIFE (Inmediately Invoked Function Expression)
