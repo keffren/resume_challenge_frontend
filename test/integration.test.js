@@ -6,10 +6,13 @@ const URL = 'https://mateodev.cloud';
 //asynchronous IIFE (Inmediately Invoked Function Expression)
 async function getViews() {
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        headless: "new",
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
 
     const page = await browser.newPage();
-  
+
     //Navigate to the web
     await page.goto(URL, { waitUntil: 'networkidle2' });
   
@@ -23,12 +26,15 @@ async function getViews() {
     await browser.close();
     
     return counterValue;
-};
+}
 
 //INTEGRATION TEST
-test("The views count difference between two consecutive requests must be 1", async() => {
+test("The views count difference between two consecutive requests must be 1", async () => {
     const first_req = await getViews();
-    const second_req = await getViews();
+    console.log('First request result:'+ first_req);
 
-    expect(second_req - first_req).toBe(1);
+    const second_req = await getViews();
+    console.log('Second request result:'+ second_req);
+
+    expect(second_req - first_req).toEqual(1);
 },TIME_OUT);
