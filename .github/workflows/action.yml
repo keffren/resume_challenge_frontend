@@ -38,15 +38,16 @@ jobs:
     needs: integration-test
 
     runs-on: ubuntu-latest
-      steps:
-        - name: Git clone the repository
-          uses: actions/checkout@v4
-        - name: Configure AWS Credentials
-          uses: aws-actions/configure-aws-credentials@v4
-          with:
-              role-to-assume: ${{ vars.AWS_SERVICE_ROLE }}
-              role-session-name: GitHub_to_AWS_via_FederatedOIDC
-              aws-region: ${{ vars.AWS_REGION }}
-        - name: Update AWS S3 bucket
-          run: |
-            aws s3 sync front-end s3://${{ vars.AWS_S3_BUCKET }}/
+    
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v4
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+            role-to-assume: ${{ vars.AWS_SERVICE_ROLE }}
+            role-session-name: GitHub_to_AWS_via_FederatedOIDC
+            aws-region: ${{ vars.AWS_REGION }}
+      - name: Update AWS S3 bucket
+        run: |
+          aws s3 sync front-end s3://${{ vars.AWS_S3_BUCKET }}/
